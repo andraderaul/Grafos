@@ -19,7 +19,7 @@ def DFS(ead, v):
 			if(not explorado[i]):
 				explorado[i] = True
 				stack.append(i)
-	
+
 	return explorado			
 
 def DFSrec(ead,explorado,v):
