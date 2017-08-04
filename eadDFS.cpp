@@ -79,12 +79,12 @@ int main(){
 	input.open("input.txt"); //abrindo entrada
 	output.open("output.txt"); //abrindo saida
     
-    int n; // numero total de vertices
-	tEAD *ead;
-    input >> n;
-    ead  = criaGrafo(n);
-	leituraArquivo(ead, n);
-    inicializaEAD(ead,n);
+    	int n; // numero total de vertices
+    	tEAD *ead;
+    	input >> n;
+    	ead  = criaGrafo(n);
+    	leituraArquivo(ead, n);
+	inicializaEAD(ead,n);
 	
 	cout << endl;
 	DFSrec(ead,1);
