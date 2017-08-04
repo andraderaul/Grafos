@@ -86,7 +86,6 @@ int main(){
 	input.open("input.txt"); //abrindo entrada
 	output.open("output.txt"); //abrindo saida
     
-<<<<<<< HEAD
     int n; // numero total de vertices
 	tEAD *ead;
     input >> n;
@@ -99,14 +98,6 @@ int main(){
     
 	inicializaEAD(ead,n);
 	DFS(ead,0);
-=======
-    	int n; // numero total de vertices
-    	tEAD *ead;
-    	input >> n;
-    	ead  = criaGrafo(n);
-    	leituraArquivo(ead, n);
-	inicializaEAD(ead,n);
->>>>>>> 1ab8e45041be0e8f4858ce167359d43bb639428c
 	
 	salvaArquivo(ead,n);
 			
