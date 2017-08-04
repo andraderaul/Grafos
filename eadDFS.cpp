@@ -11,7 +11,7 @@ typedef struct tEAD{
 
 tEAD* criaGrafo(int V){
 	tEAD *G;	
-	G = new tEAD[V+1];
+	G = new tEAD[V];
 	return G;	
 }
 void inicializaEAD(tEAD* G, int V){
@@ -43,24 +43,31 @@ void DFS(tEAD* G, int v){
 	stack <int> visitado; // pilha de visitado	
 	G[v].marcado = true; // marque v
 	visitado.push(v); // empilhe v
+	
 	while(!visitado.empty()){ // enquanto pilha n for vazia
+		int u = 0;
 		int w = visitado.top(); // pegue o topo
-		visitado.pop(); // desempilhe		 
-	//	cout << "Visitado: "<< w << endl;
-		output << "Visitado: "<< w << endl;
+		G[w].marcado = true; //marque w
+		
+		cout << "Visitado: "<< w << endl;
+		output << "Visitado: "<< w << endl;	
 		for(size_t i = 0; i < G[w].adj.size(); i++){ // para todas as arestas (w,u)
-			int u = G[w].adj[i]; // u pertence ADJ(w)
+			u = G[w].adj[i]; // u pertence ADJ(w)
 			if(!G[u].marcado){ // se u é não marcado
-				G[u].marcado = true; // marque u
 				visitado.push(u); // empilhe u
-			}
+				break;
+			}			
 		}
+		if(G[u].marcado){
+			visitado.pop();
+		}
+		
 	}
 }
 void leituraArquivo(tEAD* G, int V){
 	
 	int n, c, s;
-	for(int i = 1; i <= V; i++){
+	for(int i = 0; i < V; i++){
 		input >> c >> n;
 		for(int j = 0; j < n; j++){
 			input >> s;
@@ -70,7 +77,7 @@ void leituraArquivo(tEAD* G, int V){
 }
 void salvaArquivo(tEAD* G, int V){
 	output << endl << "[Marcados]" << endl;
-	for(int i = 1; i <= V; i++){
+	for(int i = 0; i < V; i++){
 		output << "Vertice["<< i << "]-> " << G[i].marcado << endl;
 	}
 }
@@ -84,10 +91,14 @@ int main(){
     input >> n;
     ead  = criaGrafo(n);
 	leituraArquivo(ead, n);
+    
     inicializaEAD(ead,n);
+//	DFSrec(ead,0);
+ //   output << endl;
+    
+	inicializaEAD(ead,n);
+	DFS(ead,0);
 	
-	cout << endl;
-	DFSrec(ead,1);
 	salvaArquivo(ead,n);
 			
     return 0;
