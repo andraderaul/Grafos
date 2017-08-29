@@ -78,13 +78,9 @@ int main(int argc, char* argv[]){
 	tEAD *ead;
     input >> n;
     ead  = criaGrafo(n);
-	leituraArquivo(ead, n);
-    
-    inicializaEAD(ead,n);
-    
+	leituraArquivo(ead, n);    
 	inicializaEAD(ead,n);
 	BFS(ead,0);
-	
 	salvaArquivo(ead,n);
 			
     return 0;
