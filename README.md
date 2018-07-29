@@ -1,3 +1,3 @@
 # Grafos
 
-Implementação de alguns algoritmos classicos de Grafos.
+* Implementação de alguns algoritmos classicos de Grafos.
